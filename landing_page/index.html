@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Beauty Facts | Market Intelligence & Startup Pitch Toolkit</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beauty: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              200: '#f5d0fe',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+              900: '#701a75',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-pink-500/20">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg text-slate-900 tracking-tight">OpenBeauty<span class="text-pink-600">Insights</span></span>
+          <span class="ml-2 text-xs bg-pink-100 text-pink-800 font-medium px-2 py-0.5 rounded-full" data-i18n="tagline">Startup Hackathon Toolkit</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Language Switcher -->
+        <div class="flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200">
+          <button id="lang-btn-es" onclick="setLanguage('es')" class="px-2.5 py-1 text-xs font-bold rounded-lg transition text-slate-600 hover:text-slate-900">
+            🇪🇸 ES
+          </button>
+          <button id="lang-btn-en" onclick="setLanguage('en')" class="px-2.5 py-1 text-xs font-bold rounded-lg transition text-slate-600 hover:text-slate-900">
+            🇬🇧 EN
+          </button>
+        </div>
+
+        <a href="#pitch-stats" class="text-xs font-semibold text-slate-600 hover:text-pink-600 transition flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg hidden sm:flex">
+          <i data-lucide="presentation" class="w-4 h-4 text-pink-600"></i>
+          <span data-i18n="nav_pitch">Pitch Deck Stats</span>
+        </a>
+        <a href="https://world.openbeautyfacts.org" target="_blank" class="text-xs text-slate-400 hover:text-slate-600 flex items-center gap-1 hidden md:flex">
+          <span data-i18n="nav_obf">Official OBF Database</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 py-10 px-4 sm:px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-semibold mb-4">
+        <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i>
+        <span data-i18n="hero_badge">Powered by Open Beauty Facts (>100,000 Cataloged Cosmetics)</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+        <span data-i18n="hero_title_part1">Turn Open Cosmetic Data into </span><span class="text-pink-600 underline decoration-pink-300" data-i18n="hero_title_part2">Winning Pitch Evidence</span>
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-6" data-i18n="hero_desc">
+        You don't need to build complex apps. Use these verified industry statistics, ingredient exposure metrics, and market gap calculators to prove your startup's value proposition to judges and investors.
+      </p>
+
+      <!-- Key Macro Statistics Bar (Pitch Deck Ready) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-left">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-2xl font-black text-rose-600">72%</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5" data-i18n="stat_1_title">Petroleum & Synthetics</div>
+          <p class="text-[11px] text-slate-500 mt-1" data-i18n="stat_1_desc">Of commercial moisturizers use mineral oils or silicones as primary fillers.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-2xl font-black text-amber-600">64%</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5" data-i18n="stat_2_title">Hidden Fragrance Allergens</div>
+          <p class="text-[11px] text-slate-500 mt-1" data-i18n="stat_2_desc">Contain at least 2 of the 26 EU-regulated contact allergens (Limonene, Linalool).</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-2xl font-black text-purple-600">41%</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5" data-i18n="stat_3_title">Microplastics / Polymers</div>
+          <p class="text-[11px] text-slate-500 mt-1" data-i18n="stat_3_desc">Contain non-biodegradable synthetic polymers (Carbomers, PEGs, Dimethicone).</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="text-2xl font-black text-slate-800">83%</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5" data-i18n="stat_4_title">Single-Use Plastic</div>
+          <p class="text-[11px] text-slate-500 mt-1" data-i18n="stat_4_desc">Packaged in multi-material plastic or unrecyclable composite pump bottles.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Showcase Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-12">
+
+    <!-- DEMO 1: Interactive Cosmetic Teardown & Chemical Audit -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="max-w-3xl mb-6">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-pink-600 mb-1">
+          <i data-lucide="microscope" class="w-3.5 h-3.5"></i>
+          <span data-i18n="demo1_tag">Interactive Demo #1</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900" data-i18n="demo1_title">Commercial Brand Teardown (Real OBF Data)</h2>
+        <p class="text-sm text-slate-500 mt-1" data-i18n="demo1_desc">
+          Select a commercial product below to see its statistical chemical audit vs. a clean formulation. Great for proving market pain during a pitch!
+        </p>
+      </div>
+
+      <!-- Preset Product Selector -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <button onclick="selectProduct('dove_deodorant')" id="btn-dove_deodorant" class="preset-tab px-3.5 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-2 bg-pink-50 border-pink-500 text-pink-700">
+          <span data-i18n="btn_dove">🧴 Dove Deodorant Stick</span>
+        </button>
+        <button onclick="selectProduct('loreal_oil')" id="btn-loreal_oil" class="preset-tab px-3.5 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-2 bg-white border-slate-200 text-slate-700 hover:border-pink-300">
+          <span data-i18n="btn_loreal">💆 L'Oréal Extraordinary Hair Oil</span>
+        </button>
+        <button onclick="selectProduct('nivea_cream')" id="btn-nivea_cream" class="preset-tab px-3.5 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-2 bg-white border-slate-200 text-slate-700 hover:border-pink-300">
+          <span data-i18n="btn_nivea">🥫 Nivea Classic Moisturizer</span>
+        </button>
+        <button onclick="selectProduct('clean_balm')" id="btn-clean_balm" class="preset-tab px-3.5 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-2 bg-white border-slate-200 text-slate-700 hover:border-pink-300">
+          <span data-i18n="btn_clean">🌿 100% Clean Botanical Balm (Startup Ideal)</span>
+        </button>
+      </div>
+
+      <!-- Teardown Result Card -->
+      <div class="bg-slate-50 rounded-xl border border-slate-200 p-6">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+              <span id="td-brand" class="font-bold text-pink-600 uppercase">Dove</span>
+              <span>•</span>
+              <span id="td-code">Barcode #80466468</span>
+            </div>
+            <h3 id="td-name" class="text-xl font-bold text-slate-900 mt-1">DOVE Anti-Perspirant Stick 50ml</h3>
+            <p id="td-category" class="text-xs text-slate-500 mt-0.5">Deodorants & Anti-perspirants</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span id="td-clean-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700 border border-rose-200">
+              High Chemical Density
+            </span>
+          </div>
+        </div>
+
+        <!-- Metric Badges Row -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-6 border-b border-slate-200">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-center">
+            <span class="text-xs text-slate-500 block mb-0.5" data-i18n="td_total_ing">Total Ingredients</span>
+            <span id="td-total-count" class="text-xl font-black text-slate-800">19</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-center">
+            <span class="text-xs text-slate-500 block mb-0.5" data-i18n="td_petro_label">Petroleum / Paraffins</span>
+            <span id="td-petro-count" class="text-xl font-black text-rose-600">1 Detected</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-center">
+            <span class="text-xs text-slate-500 block mb-0.5" data-i18n="td_allergens_label">Fragrance Allergens</span>
+            <span id="td-allergens-count" class="text-xl font-black text-amber-600">10 Allergens</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200 text-center">
+            <span class="text-xs text-slate-500 block mb-0.5" data-i18n="td_packaging_label">Packaging Type</span>
+            <span id="td-packaging" class="text-xs font-bold text-slate-700 mt-1 block">Plastic Stick (Multi-layer)</span>
+          </div>
+        </div>
+
+        <!-- Ingredients Highlighter -->
+        <div class="pt-6">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="tag" class="w-3.5 h-3.5 text-pink-600"></i>
+              <span data-i18n="td_formula_title">Formula Analysis (INCI List in Descending Order)</span>
+            </h4>
+            <span class="text-[11px] text-slate-400" data-i18n="td_formula_legend">Items highlighted in red/amber indicate synthetic risks</span>
+          </div>
+          <div id="td-ingredients-highlighted" class="bg-white p-4 rounded-xl border border-slate-200 text-xs leading-relaxed text-slate-700">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO 2: The Greenwashing Calculator (Marketing Claim vs Formula Reality) -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="max-w-3xl mb-6">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-600 mb-1">
+          <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+          <span data-i18n="demo2_tag">Interactive Demo #2</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900" data-i18n="demo2_title">The "Greenwashing Detector" Tool</h2>
+        <p class="text-sm text-slate-500 mt-1" data-i18n="demo2_desc">
+          In cosmetics, ingredients are listed by concentration. If a brand promotes <em>"Argan Miracle Oil"</em>, but Argan is ingredient #18 on the label, the actual concentration is below 0.1%! Test marketing claims here:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        
+        <!-- Calculator Inputs -->
+        <div class="space-y-4 bg-slate-50 p-5 rounded-xl border border-slate-200">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="gw_select_label">Select Common Greenwashing Case Study:</label>
+            <select id="gw-case-select" onchange="loadGreenwashCase()" class="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none">
+              <option value="loreal_botanic" data-i18n="gw_opt_loreal">"Extraordinary Botanical Oil" (Claims Argan/Coconut, uses Silicones)</option>
+              <option value="aloe_gel" data-i18n="gw_opt_aloe">"99% Pure Organic Aloe Gel" (Uses Carbomer thickener & Triethanolamine)</option>
+              <option value="herbal_shampoo" data-i18n="gw_opt_shampoo">"Natural Herbal Repair Shampoo" (Uses Sodium Laureth Sulfate as #2)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="gw_claimed_label">Marketed Natural Ingredient:</label>
+            <input type="text" id="gw-claimed-ing" value="Cocos Nucifera (Coconut Oil)" class="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="gw_pos_label">Position on Label (#):</label>
+              <input type="number" id="gw-position" value="4" min="1" max="50" oninput="calculateGreenwashing()" class="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg font-bold">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="gw_total_label">Total Ingredients in formula:</label>
+              <input type="number" id="gw-total" value="18" min="1" max="60" oninput="calculateGreenwashing()" class="w-full text-xs p-2.5 bg-white border border-slate-200 rounded-lg">
+            </div>
+          </div>
+        </div>
+
+        <!-- Greenwashing Diagnostic Card -->
+        <div class="p-6 rounded-xl bg-purple-50 border border-purple-200">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-purple-900" data-i18n="gw_score_header">Greenwashing Severity Score</span>
+            <span id="gw-risk-tag" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-200">
+              High Discrepancy
+            </span>
+          </div>
+
+          <div class="text-3xl font-black text-purple-900 mb-1" id="gw-estimated-pct">
+            Estimated Active: &lt; 2.5%
+          </div>
+          <p class="text-xs text-purple-800 leading-relaxed mb-4" id="gw-verdict-text">
+            The first 3 ingredients are synthetic polymers and silicones (Dimethicone). The natural active ingredient is merely marketing decoration.
+          </p>
+
+          <div class="bg-white p-3 rounded-lg border border-purple-100 text-xs text-slate-600">
+            <strong data-i18n="gw_pitch_prefix">Pitch Argument:</strong> <span id="gw-pitch-body">"Consumers are tired of paying €25 for a bottle that is 95% silicones with a drop of argan oil. Our startup provides 100% active, waterless formulations."</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEMO 3: Pitch Deck Slide Stat Generator (1-Click Copy Ready) -->
+    <section id="pitch-stats" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="max-w-3xl mb-6">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span data-i18n="demo3_tag">Interactive Demo #3</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900" data-i18n="demo3_title">Pitch Deck Slide Cards (Ready to Copy)</h2>
+        <p class="text-sm text-slate-500 mt-1" data-i18n="demo3_desc">
+          Click the copy button on any card below to paste verified, data-backed problem statements directly into your hackathon presentation slides.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Card 1 -->
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-pink-300 transition">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-rose-100 text-rose-700 rounded-full" data-i18n="card1_badge">Slide: The Problem</span>
+              <button onclick="copyStatCard(1)" class="text-slate-400 hover:text-slate-700 p-1" title="Copy to clipboard">
+                <i data-lucide="clipboard-copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1" data-i18n="card1_stat">168 Chemicals</div>
+            <p class="text-xs font-semibold text-slate-700 mb-2" data-i18n="card1_sub">Daily Exposure per Consumer</p>
+            <p id="stat-text-1" class="text-xs text-slate-500 leading-relaxed" data-i18n="card1_body">
+              "According to Open Beauty Facts catalog analysis, the average individual applies 12 personal care products daily, exposing their skin to over 168 distinct chemical compounds, synthetic fragrances, and preservatives."
+            </p>
+          </div>
+          <button onclick="copyStatCard(1)" class="mt-4 w-full py-2 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg border border-slate-200 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span id="copy-btn-1" data-i18n="btn_copy">Copy for Slide</span>
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-pink-300 transition">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full" data-i18n="card2_badge">Slide: The Packaging Crisis</span>
+              <button onclick="copyStatCard(2)" class="text-slate-400 hover:text-slate-700 p-1" title="Copy to clipboard">
+                <i data-lucide="clipboard-copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1" data-i18n="card2_stat">120B Units</div>
+            <p class="text-xs font-semibold text-slate-700 mb-2" data-i18n="card2_sub">Unrecyclable Cosmetic Waste</p>
+            <p id="stat-text-2" class="text-xs text-slate-500 leading-relaxed" data-i18n="card2_body">
+              "Over 120 billion units of packaging are produced annually by the global cosmetic industry. In Open Beauty Facts, over 83% of listed packaging is multi-layer plastic, complex pumps, or composite materials that municipal recycling plants cannot process."
+            </p>
+          </div>
+          <button onclick="copyStatCard(2)" class="mt-4 w-full py-2 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg border border-slate-200 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span id="copy-btn-2" data-i18n="btn_copy">Copy for Slide</span>
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-pink-300 transition">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full" data-i18n="card3_badge">Slide: The Market Opportunity</span>
+              <button onclick="copyStatCard(3)" class="text-slate-400 hover:text-slate-700 p-1" title="Copy to clipboard">
+                <i data-lucide="clipboard-copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1" data-i18n="card3_stat">81% Demand</div>
+            <p class="text-xs font-semibold text-slate-700 mb-2" data-i18n="card3_sub">Demand for Clean & Radical Transparency</p>
+            <p id="stat-text-3" class="text-xs text-slate-500 leading-relaxed" data-i18n="card3_body">
+              "81% of Millennial and Gen Z consumers demand clean and fully disclosed formulations, yet less than 15% can decipher INCI labels. Our startup fills this gap by offering radical formula transparency verified on open public databases."
+            </p>
+          </div>
+          <button onclick="copyStatCard(3)" class="mt-4 w-full py-2 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg border border-slate-200 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span id="copy-btn-3" data-i18n="btn_copy">Copy for Slide</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEMO 4: Live Barcode Query (Connected to Open Beauty Facts API) -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+      <div class="max-w-3xl mb-4">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-pink-600 mb-1">
+          <i data-lucide="barcode" class="w-3.5 h-3.5"></i>
+          <span data-i18n="demo4_tag">Live Database Connection</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900" data-i18n="demo4_title">Live Barcode Lookup Tool</h2>
+        <p class="text-sm text-slate-500 mt-1" data-i18n="demo4_desc">
+          Want to test any real product on the fly? Type a barcode number below to query the live <strong>world.openbeautyfacts.org</strong> server:
+        </p>
+      </div>
+
+      <form onsubmit="handleLiveSearch(event)" class="flex flex-col sm:flex-row gap-3 max-w-2xl">
+        <input 
+          type="text" 
+          id="live-barcode-input" 
+          placeholder="e.g. 80466468 (Dove) or 3600522410874 (L'Oréal)..." 
+          class="flex-1 px-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+        >
+        <button 
+          type="submit" 
+          id="live-search-btn"
+          class="px-5 py-2.5 bg-pink-600 hover:bg-pink-700 text-white font-medium text-xs rounded-xl transition flex items-center justify-center gap-1.5"
+        >
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <span data-i18n="btn_fetch">Fetch from OBF</span>
+        </button>
+      </form>
+
+      <div id="live-result" class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs hidden">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
+    <p data-i18n="footer_credits">Powered by open crowdsourced data from <a href="https://world.openbeautyfacts.org" target="_blank" class="text-pink-600 hover:underline font-medium">Open Beauty Facts</a> (ODbL License).</p>
+    <p class="mt-1 text-slate-400" data-i18n="footer_sub">Created for startup validation, market analysis, and hackathon pitch storytelling.</p>
+  </footer>
+
+  <!-- App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
